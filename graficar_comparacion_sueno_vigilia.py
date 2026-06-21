@@ -7,7 +7,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-EXCEL_PATH = Path("/Users/magdalenacullen/ITBA/neuro/TP-Neuro/2026 listas_entrenamiento_testeo.xlsx")
+EXCEL_PATH = Path(
+    "/Users/magdalenacullen/Downloads/Copy of 2026 listas_entrenamiento_testeo.xlsx"
+)
 OUT_DIR = Path("outputs")
 OUT_DIR.mkdir(exist_ok=True)
 
@@ -20,6 +22,81 @@ def normalize(value):
     text = "".join(ch for ch in text if not unicodedata.combining(ch))
     text = re.sub(r"[^a-z0-9ñ]+", " ", text)
     return re.sub(r"\s+", " ", text).strip()
+
+
+def contains_any(text, alternatives):
+    return any(term in text for term in alternatives)
+
+
+def definition_correct(expected, response):
+    """Accept a definition when its core meaning is preserved."""
+    expected = normalize(expected)
+    response = normalize(response)
+    if not response:
+        return False
+    if expected == response:
+        return True
+
+    rules = {
+        "charco de agua": lambda r: "charco" in r,
+        "viento del noroeste": lambda r: "viento" in r and "noroeste" in r,
+        "instrumento musical antiguo": lambda r: (
+            "instrumento" in r and contains_any(r, ["musical", "antiguo"])
+        ),
+        "canto de victoria": lambda r: (
+            "victoria" in r and contains_any(r, ["canto", "grito", "cancion"])
+        ),
+        "remedio para hemorragias": lambda r: (
+            contains_any(r, ["remedio", "medicamento", "medicina", "inyeccion"])
+            and "hemorrag" in r
+        ),
+        "arpon para pescar": lambda r: "arpon" in r and "pesc" in r,
+        "armadura para la rodilla": lambda r: (
+            "rodilla" in r
+            and contains_any(r, ["armadura", "proteccion", "protector"])
+        ),
+        "aglomeracion de gente": lambda r: contains_any(
+            r, ["aglomeracion", "agrupacion", "multitud", "muchedumbre"]
+        )
+        or ("grupo" in r and "gente" in r),
+        "recibo de pago": lambda r: (
+            contains_any(r, ["recibo", "ticket", "comprobante"])
+            and contains_any(r, ["pago", "sueldo"])
+        ),
+        "baranda de una escalera": lambda r: "baranda" in r and "escalera" in r,
+        "ayudante de cocina": lambda r: (
+            contains_any(r, ["ayudante", "asistente"])
+            and contains_any(r, ["cocina", "cocinero", "chef"])
+        ),
+        "poema funebre": lambda r: (
+            contains_any(r, ["poema", "canto"])
+            and contains_any(r, ["funebre", "funeral", "funerario", "velorio"])
+        ),
+        "reloj de sol": lambda r: "reloj" in r and "sol" in r,
+        "habitacion de un templo": lambda r: (
+            contains_any(r, ["habitacion", "cuarto"]) and "templo" in r
+        ),
+        "lentitud para hacer algo": lambda r: contains_any(
+            r, ["lentitud", "lento", "lentamente"]
+        ),
+        "rama nueva de un arbol": lambda r: (
+            "rama" in r and contains_any(r, ["nueva", "arbol"])
+        ),
+        "red para pescar": lambda r: "red" in r and contains_any(r, ["pesc", "cangrejo"]),
+        "red para pescar cangrejos": lambda r: (
+            "red" in r and contains_any(r, ["pesc", "cangrejo"])
+        ),
+        "renacuajo de una rana": lambda r: "renacuajo" in r
+        or ("cria" in r and "rana" in r),
+        "comedor para la servidumbre": lambda r: (
+            "comedor" in r and contains_any(r, ["servidumbre", "sirviente"])
+        ),
+        "tipo de musica espanola": lambda r: (
+            "espanol" in r and contains_any(r, ["musica", "danza", "baile"])
+        ),
+    }
+    rule = rules.get(expected)
+    return rule(response) if rule else False
 
 
 def score_sheet(sheet_name, condition):
@@ -74,7 +151,7 @@ def score_sheet(sheet_name, condition):
             )
         ]
         train_def_correct = [
-            normalize(expected) == normalize(response)
+            definition_correct(expected, response)
             for expected, response in zip(
                 train_def_expected[train_valid_def],
                 train_def_response[train_valid_def],
@@ -89,7 +166,7 @@ def score_sheet(sheet_name, condition):
             )
         ]
         test_def_correct = [
-            normalize(expected) == normalize(response)
+            definition_correct(expected, response)
             for expected, response in zip(
                 test_def_expected[test_valid_def],
                 test_def_response[test_valid_def],

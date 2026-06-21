@@ -1,13 +1,9 @@
 condicion,hoja,sujeto,n_entrenamiento_palabra,correctas_entrenamiento_palabra,pct_entrenamiento_palabra,n_entrenamiento_definicion,correctas_entrenamiento_definicion,pct_entrenamiento_definicion,n_entrenamiento_total,correctas_entrenamiento_total,pct_entrenamiento_total,n_testeo_palabra,correctas_testeo_palabra,pct_testeo_palabra,n_testeo_definicion,correctas_testeo_definicion,pct_testeo_definicion,n_testeo_total,correctas_testeo_total,pct_testeo_total,mejora_total,mejora_palabra,mejora_definicion
-Vigilia,Vigilia,Sujeto 1,20,10,50.0,20,11,55.00000000000001,40,21,52.5,20,16,80.0,20,13,65.0,40,29,72.5,20.0,30.0,9.999999999999993
-Vigilia,Vigilia,Sujeto 2,20,3,15.0,20,9,45.0,40,12,30.0,20,5,25.0,20,13,65.0,40,18,45.0,15.0,10.0,20.0
-Vigilia,Vigilia,Sujeto 3,20,3,15.0,20,3,15.0,40,6,15.0,20,9,45.0,20,8,40.0,40,17,42.5,27.5,30.0,25.0
-Vigilia,Vigilia,Sujeto 4,20,2,10.0,20,5,25.0,40,7,17.5,20,4,20.0,20,10,50.0,40,14,35.0,17.5,10.0,25.0
-Vigilia,Vigilia,Sujeto 5,20,1,5.0,20,8,40.0,40,9,22.5,20,1,5.0,20,12,60.0,40,13,32.5,10.0,0.0,20.0
-Vigilia,Vigilia,Sujeto 6,20,1,5.0,20,4,20.0,40,5,12.5,20,3,15.0,20,9,45.0,40,12,30.0,17.5,10.0,25.0
-Vigilia,Vigilia,Sujeto 7,20,3,15.0,20,10,50.0,40,13,32.5,20,12,60.0,20,13,65.0,40,25,62.5,30.0,45.0,15.0
-Sueño,Sueño,Sueño 1,20,3,15.0,20,6,30.0,40,9,22.5,20,3,15.0,20,12,60.0,40,15,37.5,15.0,0.0,30.0
-Sueño,Sueño,Sueño 2,20,1,5.0,20,5,25.0,40,6,15.0,20,1,5.0,20,7,35.0,40,8,20.0,5.0,0.0,10.0
-Sueño,Sueño,Sujeto 3,20,1,5.0,20,5,25.0,40,6,15.0,20,2,10.0,20,7,35.0,40,9,22.5,7.5,5.0,10.0
-Sueño,Sueño,Sueño 4,20,1,5.0,20,4,20.0,40,5,12.5,20,2,10.0,20,7,35.0,40,9,22.5,10.0,5.0,15.0
-Sueño,Sueño,Sueño 5,20,2,10.0,20,7,35.0,40,9,22.5,20,4,20.0,20,5,25.0,40,9,22.5,0.0,10.0,-10.0
+Vigilia,Vigilia,Sujeto 1,20,10,50.0,20,17,85.0,40,27,67.5,20,16,80.0,20,18,90.0,40,34,85.0,17.5,30.0,5.0
+Vigilia,Vigilia,Sujeto 2,20,3,15.0,20,16,80.0,40,19,47.5,20,5,25.0,20,19,95.0,40,24,60.0,12.5,10.0,15.0
+Vigilia,Vigilia,Sujeto 3,20,3,15.0,20,5,25.0,40,8,20.0,20,9,45.0,20,16,80.0,40,25,62.5,42.5,30.0,55.0
+Vigilia,Vigilia,Sujeto 4,20,2,10.0,20,11,55.00000000000001,40,13,32.5,20,4,20.0,20,18,90.0,40,22,55.0,22.5,10.0,34.99999999999999
+Vigilia,Vigilia,Sujeto 5,20,1,5.0,20,12,60.0,40,13,32.5,20,1,5.0,20,17,85.0,40,18,45.0,12.5,0.0,25.0
+Vigilia,Vigilia,Sujeto 6,20,1,5.0,20,14,70.0,40,15,37.5,20,3,15.0,20,19,95.0,40,22,55.0,17.5,10.0,25.0
+Vigilia,Vigilia,Sujeto 7,20,3,15.0,20,13,65.0,40,16,40.0,20,12,60.0,20,20,100.0,40,32,80.0,40.0,45.0,35.0
+Sueño,Sueño,Sujeto 3,20,1,5.0,20,14,70.0,40,15,37.5,20,2,10.0,20,16,80.0,40,18,45.0,7.5,5.0,10.0
